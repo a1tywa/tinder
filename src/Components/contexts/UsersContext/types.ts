@@ -1,7 +1,12 @@
 export type usersContextType = {
+  getTotalPageCount: () => void;
   users: user[];
   user: user | null;
   getUsers: () => void;
+  page: number;
+  pageTotalCount: number;
+  setPage: (num: number) => void;
+  getFilteredUsers: ({ gender }: { gender: string }) => void;
 };
 
 export type user = {
@@ -10,10 +15,11 @@ export type user = {
   age: number;
   image: string;
   description: string;
-  hobby: string[];
+  gender: string;
 };
 
 export type initSateType = {
+  pageTotalCount: any;
   users: user[];
   user: user | null;
 };
@@ -22,9 +28,16 @@ type usersActionType = {
   type: "users";
   payload: user[];
 };
+type pageTotalCountType = {
+  type: "pageTotalCount";
+  payload: number;
+};
 type userActionType = {
   type: "user";
   payload: user | null;
 };
 
-export type allActionType = usersActionType | userActionType;
+export type allActionType =
+  | usersActionType
+  | userActionType
+  | pageTotalCountType;

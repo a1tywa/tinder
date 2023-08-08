@@ -35,6 +35,7 @@ const UserItem: React.FC<propsType> = ({ item }) => {
       <Card sx={{ width: 420 }}>
         <CardContent>
           <CardMedia
+            component="img"
             sx={{ height: "200px" }}
             src={item.image}
             title={item.name}
@@ -49,6 +50,11 @@ const UserItem: React.FC<propsType> = ({ item }) => {
             {item.description}
             <br />
           </Typography>
+          <Box display="flex">
+            <Typography variant="h4" gutterBottom sx={{ marginRight: 2 }}>
+              {item.gender}
+            </Typography>
+          </Box>
           <Typography sx={{ fontSize: 13 }}>{"В 2км от вас"}</Typography>
         </CardContent>
         <CardActions sx={{ display: "flex", justifyContent: "center" }}>
